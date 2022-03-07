@@ -24,6 +24,8 @@ public class FensterMain extends JFrame{
       private Timer t;
       private final JTextArea txaAusgabe = new JTextArea();
       private JTextArea txaRangliste = new JTextArea();
+       boolean debounce = false;
+      
       
         
         
@@ -50,7 +52,11 @@ public class FensterMain extends JFrame{
         this.add(start);
           //Event (Was passiert wenn man denn Button anklickt, kann aber auch eine Tasten kombi oder Mausklick sein)
         start.addActionListener((ActionEvent ae) -> {
+           
            this.StarteRennen();
+           start.setEnabled(false);
+           
+           
         });
         this.add(start);
         this.pack();
@@ -60,7 +66,7 @@ public class FensterMain extends JFrame{
             
            // txaAusgabe.setText(this.pferd);
             txaAusgabe.setEditable(false);
-          txaAusgabe.setLocation(10, 80);
+            txaAusgabe.setLocation(10, 80);
             txaAusgabe.setSize(700, 400);
             this.add(txaAusgabe);
             
@@ -69,17 +75,22 @@ public class FensterMain extends JFrame{
             this.setVisible(true);
             
             //txa.Rangliste.
-             txaRangliste.setEditable(false);
+            txaRangliste.setEditable(false);
             txaRangliste.setLocation(600, 320);
             txaRangliste.setSize(200, 160);
             this.add(txaRangliste);
             this.setVisible(true);
             
+            
+            
+            
        
     }
 
     private void StarteRennen() {
+        rennbahn.nochmal();
         t = new Timer(50, (ActionEvent ae) -> {
+            start.setEnabled(false);
            this.GameLoop();
         });
             t.start();
@@ -89,6 +100,7 @@ public class FensterMain extends JFrame{
       //renchne aus, wie viel Zeit seit dem letzten vergangen ist
       if(rennbahn.bewegeDiePferde()){
           t.stop();
+          start.setEnabled(true);
         }
       txaRangliste.setText(rennbahn.getRangliste());
     }
