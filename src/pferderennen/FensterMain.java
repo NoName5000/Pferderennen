@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ContainerListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
@@ -24,7 +25,31 @@ public class FensterMain extends JFrame{
       private Timer t;
       private final JTextArea txaAusgabe = new JTextArea();
       private JTextArea txaRangliste = new JTextArea();
-       boolean debounce = false;
+      boolean debounce = false;
+      
+      
+      //Wette
+      
+      public int j[] = {1, 10, 20, 30, 40, 50   
+     };
+      public String betrag[] ={ "1€", "10€", "20€", "30€", "40€", "50€"
+          
+      };
+      
+      int betragArray[] = Integer.parseInt(betrag.length);
+      
+      public void StringToInt() {
+          for (int i = 0; i < betrag.length; i++) {
+            betragArray[i] = Integer.parseInt(betrag[i]);
+        }
+      }
+     
+     private JComboBox sGeld = new JComboBox(betrag);
+
+        
+      
+    
+        
       
       
         
@@ -62,17 +87,7 @@ public class FensterMain extends JFrame{
         this.pack();
         this.setVisible(true);
         
-        //text ausgabe
-            
-           // txaAusgabe.setText(this.pferd);
-            txaAusgabe.setEditable(false);
-            txaAusgabe.setLocation(10, 80);
-            txaAusgabe.setSize(700, 400);
-            this.add(txaAusgabe);
-            
-           // txaAusgabe.setText(this.pferd);
-            txaAusgabe.setEditable(false);
-            this.setVisible(true);
+       
             
             //txa.Rangliste.
             txaRangliste.setEditable(false);
@@ -80,6 +95,17 @@ public class FensterMain extends JFrame{
             txaRangliste.setSize(200, 160);
             this.add(txaRangliste);
             this.setVisible(true);
+            
+            
+            //Geld auf Wert eingabe
+            sGeld.setLocation(10, 390);
+            sGeld.setSize(180, 20);
+            sGeld.setEditable(false);
+            this.add(sGeld);
+            sGeld.setVisible(true);
+            
+
+            
             
             
             
