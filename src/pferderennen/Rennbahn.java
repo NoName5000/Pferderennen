@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pferderennen;
 
 //Lenno
@@ -26,20 +22,22 @@ class Rennbahn extends JPanel {
     public String getRangliste () {
         Pferd ps[] = this.pferde;
         String ausgabe = " ";
-        for (int i = 0; i < ps.length; i++){
+        //Bubblesort
+        for(int i = 0; i < ps.length; i++){
             for (int j = 0; j < ps.length - 1; j++){
-                if(ps[j + 1].getX() < ps[j].getX()){
+                if(ps[j + 1].getX() > ps[j].getX()){
                 Pferd temp = ps[j];
                 ps[j] =ps[j+1];
                 ps[j+1] = temp;
                 }
             }
             
+            
         }
         for (int i = 0; i< ps.length; i++){
             ausgabe += (i+1) +"\t" + ps[i].getName() +"\t" + ps[i].getText()+"\n";
         }
-        //Bubblesort programmieren
+        
         
         return ausgabe;
     }
@@ -54,6 +52,11 @@ class Rennbahn extends JPanel {
             }
         }
         return istZuende;
+    }
+    public void nochmal(){
+        for (int i = 0; i < pferde.length; i++) {
+            pferde[i].reset();
+        }
     }
     
 }
