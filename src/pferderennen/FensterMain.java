@@ -29,22 +29,25 @@ public class FensterMain extends JFrame{
       
       
       //Wette
-      
-      public int j[] = {1, 10, 20, 30, 40, 50   
+      private int j[] = {0, 1, 10, 20, 30, 40, 50   
      };
-      public String betrag[] ={ "1€", "10€", "20€", "30€", "40€", "50€"
-          
+      private String betrag[] ={ "Kein Einsatz", "1€", "10€", "20€", "30€", "40€", "50€"
       };
-      
-      int betragArray[] = Integer.parseInt(betrag.length);
-      
+      int betragArray[] = new int[betrag.length];
       public void StringToInt() {
           for (int i = 0; i < betrag.length; i++) {
             betragArray[i] = Integer.parseInt(betrag[i]);
         }
       }
-     
      private JComboBox sGeld = new JComboBox(betrag);
+     
+     
+     //Geld ausgabe des Gewinnes mit der Warscheinlichkeit auf den Sieger
+     private JTextField oGeld = new JTextField();
+     
+     
+     //Wette eingabe bestätigen
+     private JButton oButton = new JButton();
 
         
       
@@ -77,9 +80,10 @@ public class FensterMain extends JFrame{
         this.add(start);
           //Event (Was passiert wenn man denn Button anklickt, kann aber auch eine Tasten kombi oder Mausklick sein)
         start.addActionListener((ActionEvent ae) -> {
-           
+           sGeld.setEnabled(false);
            this.StarteRennen();
            start.setEnabled(false);
+           
            
            
         });
@@ -91,8 +95,8 @@ public class FensterMain extends JFrame{
             
             //txa.Rangliste.
             txaRangliste.setEditable(false);
-            txaRangliste.setLocation(600, 320);
-            txaRangliste.setSize(200, 160);
+            txaRangliste.setLocation(500, 330);
+            txaRangliste.setSize(250, 210);
             this.add(txaRangliste);
             this.setVisible(true);
             
@@ -103,6 +107,18 @@ public class FensterMain extends JFrame{
             sGeld.setEditable(false);
             this.add(sGeld);
             sGeld.setVisible(true);
+            
+            //oGewinn ausgabe Wert des Gewinns + Warscheinlichkeit
+            oGeld.setLocation(190, 390);
+            oGeld.setSize(180, 20);
+            oGeld.setEditable(false);
+            oGeld.setText(betrag[2] + "€");
+            this.add(oGeld);
+            oGeld.setVisible(true);
+            
+            // Fenster des 
+         
+            
             
 
             
