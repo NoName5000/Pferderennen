@@ -3,6 +3,8 @@ package pferderennen;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -22,6 +24,7 @@ class Pferd extends JButton{
     
      
     public Pferd(int nummer, Color farbe){
+        //this. = sagt dem Objekt was es machen soll benutzt man um sich nicht zu verschreiben (ausnahme bei der man this. benutzen muss: setter)
         this.nummer = nummer;
         this.farbe = farbe;
         Pferdenamengenerator pf = new Pferdenamengenerator();
@@ -34,6 +37,14 @@ class Pferd extends JButton{
         this.setLocation(10, 30 * nummer +10);
         this.setBackground(Color.ORANGE);    
         this.setOpaque(true);
+        
+        this.addActionListener((ActionEvent af) -> {
+         
+         
+            
+       
+        });
+
             
             
     }

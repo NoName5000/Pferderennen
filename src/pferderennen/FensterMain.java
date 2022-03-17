@@ -17,29 +17,26 @@ import pferderennen.Pferd;
 
 
 
+
 public class FensterMain extends JFrame{
      
       private Rennbahn rennbahn = new Rennbahn();
+      
       private final JButton start = new JButton(); 
       private final JTextField tfeld = new JTextField();
       private Timer t;
       private final JTextArea txaAusgabe = new JTextArea();
       private JTextArea txaRangliste = new JTextArea();
       boolean debounce = false;
+      private Wetten wetten = new Wetten();
       
       
       //Wette
       private int j[] = {0, 1, 10, 20, 30, 40, 50   
      };
-      private String betrag[] ={ "Kein Einsatz", "1€", "10€", "20€", "30€", "40€", "50€"
-      };
-      int betragArray[] = new int[betrag.length];
-      public void StringToInt() {
-          for (int i = 0; i < betrag.length; i++) {
-            betragArray[i] = Integer.parseInt(betrag[i]);
-        }
-      }
-     private JComboBox sGeld = new JComboBox(betrag);
+     
+      
+     
      
      
      //Geld ausgabe des Gewinnes mit der Warscheinlichkeit auf den Sieger
@@ -66,11 +63,16 @@ public class FensterMain extends JFrame{
          this.getContentPane().setPreferredSize(new Dimension (800, 600));
          this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          this.setTitle("Pferderennbahn");
+         
            
          
          this.add(rennbahn);
+         this.add(wetten);
          this.pack();
          this.setVisible(true);
+         
+         
+         
          
          
          //Schaltfläche (Button)
@@ -80,7 +82,7 @@ public class FensterMain extends JFrame{
         this.add(start);
           //Event (Was passiert wenn man denn Button anklickt, kann aber auch eine Tasten kombi oder Mausklick sein)
         start.addActionListener((ActionEvent ae) -> {
-           sGeld.setEnabled(false);
+           //sGeld.setEnabled(false);
            this.StarteRennen();
            start.setEnabled(false);
            
@@ -101,22 +103,11 @@ public class FensterMain extends JFrame{
             this.setVisible(true);
             
             
-            //Geld auf Wert eingabe
-            sGeld.setLocation(10, 390);
-            sGeld.setSize(180, 20);
-            sGeld.setEditable(false);
-            this.add(sGeld);
-            sGeld.setVisible(true);
             
-            //oGewinn ausgabe Wert des Gewinns + Warscheinlichkeit
-            oGeld.setLocation(190, 390);
-            oGeld.setSize(180, 20);
-            oGeld.setEditable(false);
-            oGeld.setText(betrag[2] + "€");
-            this.add(oGeld);
-            oGeld.setVisible(true);
+                
+
+            // Wenn man Pferde anklickt schneller
             
-            // Fenster des 
          
             
             
