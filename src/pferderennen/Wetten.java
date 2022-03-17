@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pferderennen;
 
 import java.awt.Color;
@@ -23,7 +19,7 @@ public class Wetten extends JPanel {
           }
         }
       
-     private JComboBox sGeld = new JComboBox(betrag);
+     private JTextField sGeld = new JTextField();
      
      
      //Geld ausgabe des Gewinnes mit der Warscheinlichkeit auf den Sieger
@@ -32,27 +28,48 @@ public class Wetten extends JPanel {
      
      //Wette eingabe bestätigen
      private JButton oButton = new JButton();
+     private int zahlen;
+     private int wert2;
      
+     
+     //Wetten bestätigen Button
+  
      public Wetten(){
          //Geld auf Wert eingabe
          this.setLayout(null);
          this.setLocation(10, 430);
          this.setSize(250, 210);
-         this.setBackground(Color.LIGHT_GRAY);
-            sGeld.setLocation(10, 390);
-            sGeld.setSize(180, 20);
-            sGeld.setEditable(false);            
+         
+            sGeld.setLocation(10, 100);
+            sGeld.setSize(50, 20);
+            sGeld.setText(zahlen +"");
+            sGeld.setBackground(Color.red);
+           
+            if(Integer.parseInt(sGeld.getText()) <= 0){
+                int wert2 = Integer.parseInt(sGeld.getText());
+            }else {System.out.println("it dosent work");
+                    }
+     
+            
+              
+            sGeld.setEditable(true);            
             sGeld.setVisible(true);
             this.add(sGeld);
             
             //oGewinn ausgabe Wert des Gewinns + Warscheinlichkeit
-            oGeld.setLocation(190, 390);
-            oGeld.setSize(180, 20);
+            oGeld.setLocation(60, 100);
+            oGeld.setSize(100, 20);
             oGeld.setEditable(false);
-            oGeld.setText("hier muss das Arry sGeld rein");            
+            oGeld.setText(wert2 *2 + "€");            
             oGeld.setVisible(true);
             this.add(oGeld);
-    
+            
+            //oButton bestätigen der eingabe
+            oButton.setLocation(60, 100);
+            oButton.setSize(10, 20);
+            oButton.setVisible(true);
+            this.add(oButton);
+                   
      }
 
 }
