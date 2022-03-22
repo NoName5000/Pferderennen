@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 class Rennbahn extends JPanel {
     Pferd pferde[] = new Pferd[10];
+    private int gewinnerPferd;
     public Rennbahn(){
       this.setLayout(null);
       this.setSize(780, 310);
@@ -30,10 +31,9 @@ class Rennbahn extends JPanel {
                 ps[j] =ps[j+1];
                 ps[j+1] = temp;
                 }
-            }
-            
-            
+            } 
         }
+        
         for (int i = 0; i< ps.length; i++){
             ausgabe += (i+1) +"\t" + ps[i].getName() +"\t" + ps[i].getText()+"\n";
         }
@@ -51,6 +51,7 @@ class Rennbahn extends JPanel {
                 istZuende = false;
             }
         }
+        gewinnerPferd = pferde[0].getNummer();
         return istZuende;
     }
     public void nochmal(){

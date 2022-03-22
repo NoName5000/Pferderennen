@@ -1,21 +1,16 @@
 package pferderennen;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-
-import javax.swing.JPanel;
 
 /**
  *
  * @author Lenno
  */
-class Pferd extends JButton{
+public class Pferd extends JButton{
     
     private int nummer;
     private Color farbe;
